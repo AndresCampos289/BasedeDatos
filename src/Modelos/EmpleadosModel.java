@@ -45,4 +45,21 @@ public void Actualizar(int codigo, String Apellidos, String Nombre, String telef
           
 }
 
+public void Guardar(int codigo, String Apellidos, String Nombre, String Telefono)
+{
+    try
+        {
+          Conexion nuevaConexion = new Conexion();
+        MyConexion = nuevaConexion.Conectar();
+        Statement sentencia = MyConexion.createStatement();
+        sentencia.executeQuery("Insert in to EMPLEADOS set values("+"'"+codigo+"',="+"'"+Apellidos+"',"+"'"+Nombre+"',"+"'"+Telefono+"')");
+        }
+        catch(SQLException ex)
+        {
+          JOptionPane.showMessageDialog(null, "No se pudo Guardar..."+ex.getMessage());
+        }
+    
+    
+}
+
 }
